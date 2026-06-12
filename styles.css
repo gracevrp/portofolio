@@ -89,7 +89,6 @@ button:focus-visible {
   z-index: 50;
   background: var(--topbar);
   backdrop-filter: blur(10px);
-  /* border-bottom: 2px solid var(--ink); */
 }
 
 .topbar-inner {
