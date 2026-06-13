@@ -2,7 +2,7 @@
 // lalu sajikan halaman itu ketika navigasi gagal karena tidak ada koneksi.
 
 const CACHE = 'portfolio-offline-v1';
-const OFFLINE_URL = 'offline.html';
+const OFFLINE_URL = '/portofolio/offline.html';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
