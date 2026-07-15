@@ -847,10 +847,15 @@ h2 {
   background: var(--tangerine-soft)
 }
 
+.proj:nth-child(4) .ptype {
+  background: var(--sun-soft);
+}
+
 .proj h3 {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 700;
-  font-size: 18.5px
+  font-size: 18.5px;
+  color: var(--ink);
 }
 
 .proj p {
@@ -871,10 +876,20 @@ h2 {
   text-decoration: underline
 }
 
+.project-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.proj-hidden {
+  display: none;
+}
+
 /* footer */
 footer {
-  margin-top: 16px;
-  padding: 30px 0 22px;
+  margin-top: 0;
+  padding: 24px 0 20px;
   text-align: center;
   background: var(--bg);
   color: var(--ink);
@@ -927,7 +942,7 @@ footer .btn-sun {
 }
 
 .foot-note {
-  margin-top: 20px;
+  margin-top: 8px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 15px;
   font-weight: 600;
@@ -1148,7 +1163,6 @@ footer .btn-sun {
 [data-theme="dark"] .plain-list li {
   box-shadow: 3px 3px 0 rgba(0, 0, 0, .3)
 }
-
 /* tombol ikon sosial (pengganti Get in touch) */
 .social-row {
   display: flex;
@@ -1188,3 +1202,4 @@ footer .btn-sun {
 }
 
 /* chip tanggal & label project lebih cerah di dark mode */
+

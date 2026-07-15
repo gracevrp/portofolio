@@ -402,6 +402,17 @@
           <a href="https://github.com/gracepanjaitan/BDD-Cypress-Project" target="_blank" rel="noopener">View on GitHub
             →</a>
         </article>
+        <article class="proj proj-hidden">
+          <span class="ptype">MOBILE AUTOMATION</span>
+          <h3>Flight Booking Automation — Appium</h3>
+          <p>Mobile automation tests for a flight booking app — covering one-way
+            and round-trip booking flows. Built with Appium and Robot Framework
+            using the Page Object Model.</p>
+          <a href="https://github.com/gracevrp/Sanber53-Appium-Kelompok-8" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+      </div>
+      <div class="project-actions">
+        <button id="projectMoreBtn" class="btn btn-sun" type="button">Open more</button>
       </div>
     </div>
   </section>
@@ -440,6 +451,18 @@
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
     navigator.serviceWorker.register('/portofolio/sw.js');
+
+    const projectMoreBtn = document.getElementById('projectMoreBtn');
+    projectMoreBtn?.addEventListener('click', () => {
+      const hiddenProjects = document.querySelectorAll('.proj-hidden');
+      if (hiddenProjects.length > 0) {
+        hiddenProjects.forEach(el => el.classList.remove('proj-hidden'));
+        projectMoreBtn.textContent = 'Show less';
+      } else {
+        document.querySelectorAll('#projects .proj:nth-child(n+4)').forEach(el => el.classList.add('proj-hidden'));
+        projectMoreBtn.textContent = 'Open more';
+      }
+    });
   </script>
 </body>
 
