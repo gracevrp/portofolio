@@ -402,7 +402,7 @@
           <a href="https://github.com/gracepanjaitan/BDD-Cypress-Project" target="_blank" rel="noopener">View on GitHub
             →</a>
         </article>
-        <article class="proj proj-hidden">
+        <article class="proj proj-hidden" style="display:none;">
           <span class="ptype">MOBILE AUTOMATION</span>
           <h3>Flight Booking Automation — Appium</h3>
           <p>Mobile automation tests for a flight booking app — covering one-way
@@ -453,13 +453,26 @@
     navigator.serviceWorker.register('/portofolio/sw.js');
 
     const projectMoreBtn = document.getElementById('projectMoreBtn');
+    const ensureHiddenProjects = () => {
+      document.querySelectorAll('.proj-hidden').forEach(el => el.style.display = 'none');
+    };
+
+    document.addEventListener('DOMContentLoaded', ensureHiddenProjects);
+    ensureHiddenProjects();
+
     projectMoreBtn?.addEventListener('click', () => {
       const hiddenProjects = document.querySelectorAll('.proj-hidden');
       if (hiddenProjects.length > 0) {
-        hiddenProjects.forEach(el => el.classList.remove('proj-hidden'));
+        hiddenProjects.forEach(el => {
+          el.classList.remove('proj-hidden');
+          el.style.display = '';
+        });
         projectMoreBtn.textContent = 'Show less';
       } else {
-        document.querySelectorAll('#projects .proj:nth-child(n+4)').forEach(el => el.classList.add('proj-hidden'));
+        document.querySelectorAll('#projects .proj:nth-child(n+4)').forEach(el => {
+          el.classList.add('proj-hidden');
+          el.style.display = 'none';
+        });
         projectMoreBtn.textContent = 'Open more';
       }
     });
