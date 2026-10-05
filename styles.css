@@ -8,6 +8,8 @@
   --tangerine-soft: #FFE8DC;
   --teal: #119C84;
   --teal-soft: #DCF3EE;
+  --action-link: #087565;
+  --action-link-hover: #075C50;
   --sun: #FFD23F;
   --sun-soft: #FFF3C9;
   --sky-soft: #E3F0FB;
@@ -27,6 +29,8 @@
   --tangerine-soft: #54301A;
   --teal: #3BAE97;
   --teal-soft: #124A3D;
+  --action-link: #63D4BD;
+  --action-link-hover: #9AEBD9;
   --sun: #E9C254;
   --sun-soft: #4E4012;
   --sky-soft: #1E3A57;
@@ -330,6 +334,12 @@ h1 {
   box-shadow: 0 0 0 var(--ink)
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--tangerine);
+  outline-offset: 4px;
+}
+
 .btn-primary {
   background: var(--tangerine);
   color: #fff
@@ -540,12 +550,14 @@ h2 {
 }
 
 .ticket-logo {
+  position: relative;
   width: 54px;
   height: 54px;
   flex-shrink: 0;
   border: 2.5px solid var(--ink);
   border-radius: 13px;
-  background: var(--sky-soft);
+  background: var(--logo-bg, var(--sky-soft));
+  color: var(--logo-fg, var(--ink));
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -555,11 +567,55 @@ h2 {
   box-shadow: 3px 3px 0 rgba(35, 48, 59, .15);
 }
 
+.ticket-logo-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--logo-fg, var(--ink));
+}
+
+.ticket-logo--dealls {
+  --logo-bg: #6b00e8;
+  --logo-fg: #fff;
+}
+
+.ticket-logo--dame-ulos {
+  --logo-bg: #3c1827;
+  --logo-fg: #d5b16d;
+}
+
+.ticket-logo--w4c {
+  --logo-bg: #12a6ad;
+  --logo-fg: #fff;
+}
+
+.ticket-logo--digitalent {
+  --logo-bg: #0582fa;
+  --logo-fg: #fff;
+}
+
+.ticket-logo--jatis {
+  --logo-bg: #f4511e;
+  --logo-fg: #fff;
+}
+
+.ticket-logo--code-id {
+  --logo-bg: #f24b54;
+  --logo-fg: #fff;
+}
+
 .ticket-logo img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
   background: #fff
+}
+
+.ticket-logo.has-fallback img {
+  display: none;
 }
 
 .ticket-head {
@@ -868,12 +924,14 @@ h2 {
   font-family: 'Space Mono', monospace;
   font-size: 13px;
   font-weight: 700;
-  color: var(--teal);
-  text-decoration: none;
+  color: var(--action-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .15s;
 }
 
 .proj a:hover {
-  text-decoration: underline
+  color: var(--action-link-hover);
 }
 
 .project-actions {
@@ -1190,8 +1248,8 @@ footer .btn-sun {
 }
 
 .icon-btn:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--ink);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
   background: var(--sun);
   color: #23303B;
 }
