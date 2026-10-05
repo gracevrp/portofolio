@@ -570,7 +570,7 @@ h2 {
 .ticket-logo-fallback {
   position: absolute;
   inset: 0;
-  display: grid;
+  display: none;
   place-items: center;
   color: var(--logo-fg, var(--ink));
 }
@@ -616,6 +616,10 @@ h2 {
 
 .ticket-logo.has-fallback img {
   display: none;
+}
+
+.ticket-logo.has-fallback .ticket-logo-fallback {
+  display: grid;
 }
 
 .ticket-head {
